@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+      <meta charset="UTF-8">
+      <meta http-equiv="X-UA-Compatible" content="IE=edge">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link rel="stylesheet" href="style.css">
+</head>
+<body>
+      
+      <header>
+            <nav class="navbar">
+                  <div class="container nav-container">
+                        <a href="#" class="navbar-brand">My List</a>
+                        <button class="novbar-toggler" type="button">
+                              <span class="navbar-toggler-icon"></span>
+                        </button>
+                        <div class="colapse fl" id="navbarNav">
+                              <ul class="navbar-nav">
+                                    <li class="nav-item disabled">
+                                          <a href="index.html" class="nav-link ">Shopping list</a>
+                                    </li>
+                                    <li class="nav-item ">
+                                          <a href="#" class="nav-link ">Todo List</a>
+                                    </li>
+                              </ul>      
+                        </div>
+                  </div>
+            </nav>
+      </header>
+      <main>
+            <div class="container">
+                  <h1>Todo List</h1>
+                  <div class="todo-container">
+                        <form id="todoForm">
+                              <label for="todoName">Task Name : </label>
+                              <input id="todoName" type="text" name="dodoName" required >
+                              <label for="description">Description :</label>
+                              <textarea name="description" id="description" cols="30" rows="10" required></textarea>
+                              <button id="addTaskBtn" class="btn" type="submit">Add Task</button>
+                        </form>
+                        <div class="todo-content">
+                              <div id="todoList"></div>
+                        </div>
+                  </div>
+            </div>
+      </main>
+      <footer>
+
+      </footer>
+
+
+      <script src="todo.js"></script>
+</body>
+</html>

@@ -1,0 +1,214 @@
+html {
+      font-size: 16px;
+}
+
+body {
+      font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+}
+
+      /* NAVIGATION */
+nav {
+      background-color: rgba(241, 234, 234, 0.863);
+      height: 50px;
+      padding: 0;
+}
+
+nav a {
+      text-decoration: none;
+      color: #333;
+}
+
+nav ul {
+      padding: 0;
+}
+
+.novbar-toggler {
+      display: none;
+}
+
+.colapse {
+      display: inline-block;
+      
+}
+.navbar-brand {
+      font-size: 1.2rem ;
+}
+
+.nav-item {
+      display: inline-block;
+      font-size: 1rem;
+}
+
+.nav-container {
+      display: flex;
+      align-items:baseline;
+      gap: 2em;
+}
+
+.navbar-nav {
+      display: flex;
+      width: 170px;
+      justify-content: space-between;
+}
+
+.disabled {
+      opacity: .6;
+}
+
+.disabled:hover {
+      opacity: 1;
+}
+
+/* MAIN CONTENT */
+
+#form, #todoForm {
+      width: 200px;
+      display: grid;
+      height: 80px;
+}
+
+form .btn {
+      width: 100px;
+      background-image: linear-gradient(90deg, rgb(9, 158, 9), rgb(132, 202, 85));
+      color: white;
+      text-transform: uppercase;
+      padding: .3em .7em;
+      border-radius: 5px;
+      font-weight: bold;
+      margin-top: .5em;
+}
+
+#taskInput {
+      padding: .3em;;
+}
+
+
+.container {
+      max-width: 1000px;
+      margin: 0 auto;
+      padding: 0 1em;
+}
+
+.task-container {
+       display: grid;
+       grid-template-columns: 30% 40%;
+       grid-gap: 30%;
+}
+
+.task-content {
+      width: 200px;
+      height: 300px;
+      text-align: left;
+      box-shadow: 
+            0px 1px 5px 2px rgba(0, 0, 0, .15),
+            0 10px 0 -5px #eee,
+            0 10px 1px -4px rgba(0, 0, 0, .15),
+            0 20px 0px -10px #eee,
+            0 20px 1px -9px rgba(0, 0, 0, .15);
+      overflow:auto;
+      padding: 0 1em 0 2em;
+}
+.task-content ul {
+      padding: 0;
+}
+
+.itemList {
+      margin: .3em 0;
+     
+}
+h1 {
+      letter-spacing: 2px;
+}
+
+@media (max-width:1020px) {
+      .task-container {
+            display: grid;
+            grid-template-columns: 20vw 20vw;
+
+     }
+}
+
+@media (max-width:750px) {
+   
+      .task-container {
+            display: flex;
+           flex-direction: column;
+            align-items: center;
+     }
+
+     #form {
+           margin-bottom: 2em;
+     }
+
+     h1 {
+           text-align: center;
+     }
+}
+
+/* TODO LIST */
+
+.todo-container {
+      display: grid;
+      grid-template-columns: 25% 50%;
+      grid-gap: 10%;
+}
+
+.todo-content {
+      width: 600px;
+      height: 300px;
+      text-align: left;
+      box-shadow: 
+            0px 1px 5px 2px rgba(0, 0, 0, .15),
+            0 10px 0 -5px #eee,
+            0 10px 1px -4px rgba(0, 0, 0, .15),
+            0 20px 0px -10px #eee,
+            0 20px 1px -9px rgba(0, 0, 0, .15);
+      overflow:auto;
+      padding: 1em;
+}
+
+.todo-wrap {
+      display: flex;
+      justify-content: space-between;
+      border: 1px solid #333;
+      padding: 1em;
+      margin: .5em 0;
+     
+}
+
+.todo-wrap h3 {
+      margin: 0;
+}
+
+.todo-wrap button {
+      align-self: center;
+      padding: .3em .6em;
+      background-color: green;
+      color: #fff;
+      border-radius: 5px;
+      font-size: 1rem;
+}
+
+.btn-done {
+      background-color: red  !important;
+}
+
+@media (max-width: 1000px ) {
+      .todo-container {
+            display: flex;
+            flex-direction: column;
+            height: 2000px;
+            align-items: center;
+      }
+      h1 {
+            text-align: center;
+      }
+}
+
+
+
+
+
+
