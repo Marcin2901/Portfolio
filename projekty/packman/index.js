@@ -75,11 +75,12 @@ createBoard()
 let pacmanCurrentIndex = 490
 squares[pacmanCurrentIndex].classList.add('pacman')
 
+
 function control(e) {
     squares[pacmanCurrentIndex].classList.remove('pacman')
     switch(e.keyCode) {
         case 40:
-        console.log('pressed down')
+        // console.log('pressed down')
         if (
             !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair') &&
             !squares[pacmanCurrentIndex + width].classList.contains('wall') &&
@@ -88,7 +89,7 @@ function control(e) {
             pacmanCurrentIndex += width
         break
         case 38:
-        console.log('pressed up')
+        // console.log('pressed up')
         if (
             !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair') &&
             !squares[pacmanCurrentIndex - width].classList.contains('wall') &&
@@ -97,7 +98,7 @@ function control(e) {
             pacmanCurrentIndex -= width
         break
         case 37: 
-        console.log('pressed left')
+        // console.log('pressed left')
         if( 
             !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair') &&
             !squares[pacmanCurrentIndex -1].classList.contains('wall') &&
@@ -109,7 +110,7 @@ function control(e) {
             }
         break
         case 39:
-        console.log('pressed right')
+        // console.log('pressed right')
         if(
             !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair') &&
             !squares[pacmanCurrentIndex +1].classList.contains('wall') &&
@@ -128,6 +129,72 @@ function control(e) {
     checkForGameOver()
 }
 document.addEventListener('keyup', control)
+
+// tablety i telefony {
+    const leftArrow = document.getElementById('left')
+    let left = leftArrow.className
+
+    const upArrow = document.getElementById('up');
+    let up = upArrow.className
+
+    const rightArrow = document.getElementById('right');
+    let right = rightArrow.className
+
+    const downArrow = document.getElementById('down');
+    let down = downArrow.className
+
+    function controlArrows(e) {
+        // console.log(e.target.className)
+        squares[pacmanCurrentIndex].classList.remove('pacman')
+        switch(e.target.className) {
+            case left: 
+                if( 
+                    !squares[pacmanCurrentIndex -1].classList.contains('ghost-lair') &&
+                    !squares[pacmanCurrentIndex -1].classList.contains('wall') &&
+                    pacmanCurrentIndex % width !==0
+                    ) 
+                    pacmanCurrentIndex -=1
+                    if (pacmanCurrentIndex === 364) {
+                        pacmanCurrentIndex = 391
+                    }
+                    break;
+            case right: 
+                if(
+                    !squares[pacmanCurrentIndex +1].classList.contains('ghost-lair') &&
+                    !squares[pacmanCurrentIndex +1].classList.contains('wall') &&
+                    pacmanCurrentIndex % width < width -1
+                    ) 
+                    pacmanCurrentIndex +=1
+                    if (pacmanCurrentIndex === 391) {
+                        pacmanCurrentIndex = 364
+                    }
+            break;
+            case up: 
+                if (
+                    !squares[pacmanCurrentIndex -width].classList.contains('ghost-lair') &&
+                    !squares[pacmanCurrentIndex - width].classList.contains('wall') &&
+                    pacmanCurrentIndex - width >=0
+                    ) 
+                    pacmanCurrentIndex -= width
+                break;
+            case down: 
+                if (
+                    !squares[pacmanCurrentIndex + width].classList.contains('ghost-lair') &&
+                    !squares[pacmanCurrentIndex + width].classList.contains('wall') &&
+                    pacmanCurrentIndex + width < width * width
+                    ) 
+                    pacmanCurrentIndex += width
+            break;
+        }
+        squares[pacmanCurrentIndex].classList.add('pacman')
+        pacDotEaten()
+        powerPelletEaten()
+        checkForWin()
+        checkForGameOver()
+    } 
+
+document.addEventListener('click', controlArrows)
+//}
 
 
 function pacDotEaten() {
@@ -187,10 +254,10 @@ const blindSquare = [348, 376, 351,379, 347,352,375, 380, 403,404,405,406,407,40
 blindSquare.forEach((value) => {squares[value].classList.add('blind')})
 
 function moveGhost(ghost) {
-    console.log('moved ghost')
+    // console.log('moved ghost')
     const directions = [-1, +1, -width, +width]
     let direction = directions[Math.floor(Math.random() * directions.length)]
-    console.log(direction)
+    // console.log(direction)
     
     ghost.timerId = setInterval(function() {
         //all our code
@@ -264,6 +331,7 @@ function checkForGameOver() {
     ghosts.forEach(ghost => clearInterval(ghost.timerId))
     //remove eventlistener from our control function
     document.removeEventListener('keyup', control)
+    document.removeEventListener('click', controlArrows)
     //tell user the game is over   
     scoreDisplay.innerHTML = 'You LOSE'
      }
@@ -277,7 +345,9 @@ function checkForWin() {
         ghosts.forEach(ghost => clearInterval(ghost.timerId))
         //remove the eventListener for the control function
         document.removeEventListener('keyup', control)
+        document.removeEventListener('click', controlArrows)
         //tell our user we have won
         scoreDisplay.innerHTML = 'You WON!'
     }
 }
+

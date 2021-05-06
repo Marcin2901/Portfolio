@@ -128,5 +128,25 @@ function control(e) {
         direction = +width
     }
 }
+
+
+const up = document.getElementById('up');
+up.addEventListener('click',  () => {
+    direction = -width
+} )
+const right = document.getElementById('right');
+right.addEventListener('click',  () => {
+    direction = 1
+} )
+const down = document.getElementById('down');
+down.addEventListener('click',  () => {
+    direction = +width
+} )
+const left = document.getElementById('left');
+left.addEventListener('click',  () => {
+    direction = -1
+} )
+
+
 document.addEventListener('keyup', control)
 startButton.addEventListener('click', startGame)

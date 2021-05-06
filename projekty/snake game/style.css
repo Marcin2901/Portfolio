@@ -28,3 +28,35 @@ body {
 .apple {
     background-color: blue;
 }
+.arrows {
+    display: none;
+}
+
+.arrow {
+    border: 2px solid black;
+    height: 3rem;
+    padding: .1em;
+    border-radius: 10px;
+    display: inline-block;
+    opacity: .8;
+}
+
+.arrow:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.arrow:active {
+    background-color: orange;
+}
+@media (max-width:900px) {
+    .arrows {
+    display: flex;
+    flex-direction: column;
+    font-size: 3rem;
+    align-items: center;
+    margin-top: 1em;
+    height: 130px;
+    justify-content: space-between;
+} 
+}

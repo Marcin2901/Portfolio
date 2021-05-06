@@ -86,7 +86,7 @@ cv.addEventListener('click', () => {
             tile2.style.animation = 'showDescription 1s ease-in-out'
             tile2.innerHTML = `
                         <div class='dark-text'>
-                              <p>Kliknij poniższy przycisk aby pprzejść do  CV</p>
+                              <p>Kliknij poniższy przycisk aby przejść do  CV</p>
                                <button class="btn-primary"><a target="_blank" href="cv/CV_Marcin_Jaworski.pdf">Odtwóż</a></button>
                         </div>`
 
